@@ -13,7 +13,7 @@ class CommissionsController < ApplicationController
 
   def create
     @commission = Commission.new(commission_params)
-    @commission.service = @user
+    @commission.service.user = @user
     if @commission.save
       redirect_to user_path(@user)
     else
