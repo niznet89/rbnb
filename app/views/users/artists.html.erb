@@ -1,0 +1,9 @@
+<h1><%=@user.first_name%> <%=@user.last_name%> artists page</h1>
+
+<ol>
+  <% @user.artworks.each do |artwork|%>
+    <li><%=artwork.title%> -- <%=artwork.category%></li>
+  <% end %>
+</ol>
+
+<button type="button" class="btn btn-primary">Sign in or commission form</button>
