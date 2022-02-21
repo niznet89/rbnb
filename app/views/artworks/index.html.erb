@@ -1,0 +1,12 @@
+<div class="container mb-5">
+  <div class="row">
+  <h2>Artworks</h2>
+    <% @artworks.each do |artwork| %>
+      <div class="col-12">
+        <ul>
+          <li><%= artwork.title %> | <%= artwork.category %></li>
+          </ul>
+      </div>
+    <% end %>
+  </div>
+</div>
