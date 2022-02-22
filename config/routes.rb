@@ -6,6 +6,7 @@ Rails.application.routes.draw do
     resources :commissions, only: [:new, :create]
   end
   get 'artists/:id', to: 'users#artists', as: 'artists'
+  get 'thanks', to: 'users#thanks', as: 'thanks'
   # get 'services', to: 'services#show', as: 'artist_services'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

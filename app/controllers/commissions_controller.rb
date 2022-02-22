@@ -16,7 +16,7 @@ class CommissionsController < ApplicationController
     @commission.user = @user
     @commission.art_price = params["commission"]["art_price"]
     if @commission.save
-      redirect_to artists_path(@user)
+      redirect_to thanks_path
     else
       render "artists/show"
     end
