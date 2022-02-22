@@ -1,22 +1,21 @@
-<div class="container">
-  <h1><%=@user.first_name%> <%=@user.last_name%> artists page</h1>
 
-<%#= current_user %>
 
-<ol>
+<div class="modal-body row main-content">
+  <div class="col-md-6 border-right shadow-sm">
+    <!-- Your first column here -->
+    <h1><%=@user.first_name%> <%=@user.last_name%> artists page</h1>
+    <ol>
   <% @user.artworks.each do |artwork|%>
     <li><%=artwork.title%> -- <%=artwork.category%></li>
   <% end %>
 </ol>
-
-<%# <button type="button" class="btn btn-primary">Sign in or commission form</button> %>
-
-<%# if user_signed_in? %>
-  <%= simple_form_for @commission do |f| %>
+  </div>
+  <div class="col-md-6 shadow-sm">
+    <!-- Your second column here -->
+    <%= simple_form_for @commission do |f| %>
     <%= f.input :art_description %>
-    <%= f.input :art_price %>
-    <%= f.association :service %>
-    <%= f.submit "Submit", class: "btn btn-primary" %>
+    <%= f.association :service, as: :radio_buttons, label_method: :label %>
+    <%= f.submit "Submit", class: "btn btn-success" %>
   <% end %>
-<%# end %>
-</div
+  </div>
+</div>
