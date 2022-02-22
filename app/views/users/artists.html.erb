@@ -1,9 +1,20 @@
 <h1><%=@user.first_name%> <%=@user.last_name%> artists page</h1>
 
+<%#= current_user %>
+
 <ol>
   <% @user.artworks.each do |artwork|%>
     <li><%=artwork.title%> -- <%=artwork.category%></li>
   <% end %>
 </ol>
 
-<button type="button" class="btn btn-primary">Sign in or commission form</button>
+<%# <button type="button" class="btn btn-primary">Sign in or commission form</button> %>
+
+<%# if user_signed_in? %>
+  <%= simple_form_for @commission do |f| %>
+    <%= f.input :art_description %>
+    <%= f.input :art_price %>
+    <%= f.association :service %>
+    <%= f.submit "Submit", class: "btn btn-primary" %>
+  <% end %>
+<%# end %>
