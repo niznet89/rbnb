@@ -1,0 +1,19 @@
+.main-content {
+  min-height: calc(100vh - 166px);
+}
+
+// Global text / body styling
+
+h1, h2, h3, h4, h5, h6 {font-family: 'Montserrat', sans-serif;
+  font-weight: bold;
+  color: #333;
+}
+
+p {
+  color: #333;
+}
+
+body {
+  background-color: white;
+  font-family: 'Montserrat', sans-serif;
+}
