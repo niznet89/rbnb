@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Rbnb</title>
+    <title>Art Collective</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -13,8 +13,13 @@
   </head>
 
   <body>
+  <div class="container">
+    <%= render '/shared/navbar' %>
+    </div>
+    <%= render '/shared/flashes' %>
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
     <%= yield %>
+    <%= render "shared/footer" %>
   </body>
 </html>

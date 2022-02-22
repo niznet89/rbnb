@@ -35,7 +35,7 @@ class CommissionsController < ApplicationController
 
   def destroy
     @commission.destroy
-    redirect_to user_path(@user)
+    redirect_to commission_path(@commission)
   end
 
   private
