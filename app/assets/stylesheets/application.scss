@@ -11,3 +11,22 @@
 // Your CSS partials
 @import "components/index";
 @import "pages/index";
+
+// Font family import
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500;600&display=swap');
+
+// Global body styling
+
+h1, h2, h3, h4, h5, h6 {font-family: 'Montserrat', sans-serif;
+  font-weight: bold;
+  color: #333;
+}
+
+p {
+  color: #333;
+}
+
+body {
+  background-color: white;
+  font-family: 'Montserrat', sans-serif;
+}
