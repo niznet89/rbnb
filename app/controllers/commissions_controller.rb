@@ -13,9 +13,9 @@ class CommissionsController < ApplicationController
 
   def create
     @commission = Commission.new(commission_params)
-    @commission.service.user = @user
+    @commission.service.user = @current_user
     if @commission.save
-      redirect_to user_path(@user)
+      redirect_to commission_path(@commission), notice: 'Good job! A new commission form was successfully generated!'
     else
       render :new
     end
@@ -25,12 +25,12 @@ class CommissionsController < ApplicationController
 
   def update
     @commission.update(commission_params)
-    redirect_to user_path(@user)
+    redirect_to commission_path(@commission)
   end
 
   def destroy
     @commission.destroy
-    redirect_to user_path(@user)
+    redirect_to commission_path(@commission)
   end
 
   private
