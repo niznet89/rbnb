@@ -1,5 +1,5 @@
 class CommissionsController < ApplicationController
-  before_action :set_user, :set_service
+  before_action :set_user
 
   def index
     @commissions = Commission.all
@@ -13,11 +13,12 @@ class CommissionsController < ApplicationController
 
   def create
     @commission = Commission.new(commission_params)
-    @commission.service.user = @user
+    @commission.user = @user
+    @commission.art_price = params["commission"]["art_price"]
     if @commission.save
-      redirect_to user_path(@user)
+      redirect_to artists_path(@user)
     else
-      render :new
+      render "artists/show"
     end
   end
 
@@ -26,7 +27,7 @@ class CommissionsController < ApplicationController
   def update
     @commission.update(commission_params)
     redirect_to user_path(@user)
-  
+  end
 
   def destroy
     @commission.destroy
@@ -36,14 +37,11 @@ class CommissionsController < ApplicationController
   private
 
   def commission_params
-    params.require(:commission).permit(:price, :art_description, :user_id, :service_id)
+    params.require(:commission).permit(:price, :art_description, :service_id)
   end
 
   def set_user
     @user = User.find(params[:user_id])
   end
 
-  def set_service
-    @service = Service.find(params[:service_id])
-  end
 end

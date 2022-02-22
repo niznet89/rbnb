@@ -7,3 +7,10 @@
 </ol>
 
 <button type="button" class="btn btn-primary">Sign in or commission form</button>
+
+<%= simple_form_for [@user, @commission] do |f| %>
+  <%= f.input :art_description %>
+  <%= f.input :art_price %>
+  <%= f.association :service %>
+  <%= f.submit "Submit", class: "btn btn-primary" %>
+<% end %>
