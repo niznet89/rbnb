@@ -1,7 +1,22 @@
+.teal {
+  background: #295561;
+}
+.orange {
+  background-color: #ff9b30;
+}
+.yellow {
+  background-color: #ffd23d;
+}
+
+.card-wrapper {
+  border-radius: 24px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+}
+
 .cards {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-gap: 16px;
+  grid-template-columns: auto auto auto auto;
+  grid-gap: 24px;
 }
 
 // Smallest device
@@ -51,7 +66,7 @@
   font-size: 24px;
   font-weight: bold;
   text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
-  border-radius: 24px;
+  border-radius: 24px 24px 0 0;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
 }
 
