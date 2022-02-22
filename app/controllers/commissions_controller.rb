@@ -26,7 +26,7 @@ class CommissionsController < ApplicationController
   def update
     @commission.update(commission_params)
     redirect_to user_path(@user)
-  
+  end
 
   def destroy
     @commission.destroy
