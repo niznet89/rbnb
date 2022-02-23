@@ -17,7 +17,7 @@
     <!-- Your second column here -->
     <%= simple_form_for @commission do |f| %>
     <%= f.input :art_description %>
-    <%= f.association :service, as: :radio_buttons, label_method: :label %>
+    <%= f.association :service, collection: @services, as: :radio_buttons, label_method: :label %>
     <%= f.submit "Submit", class: "btn btn-success" %>
   <% end %>
   </div>
