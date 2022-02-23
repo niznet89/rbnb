@@ -1,13 +1,32 @@
-user_one = User.create(first_name: 'John', last_name: 'Doe', email: 'john@gmail.com', phone_number: '123-456-7890', password: 'abc12345', role: 'artist')
-Artwork.destroy_all
-Service.destroy_all
+require "open-uri"
+require 'json'
+require 'faker'
+require 'byebug'
+
+buffer = Cloudinary::Api.resources.to_a[0][1]
+
 Commission.destroy_all
+User.destroy_all
+Artwork.destroy_all
+Service.delete_all
+
+
+user_one = User.create(first_name: 'Pablo', last_name: 'Picasso', email: 'pablo@gmail.com', phone_number: '123-456-7890', password: 'abc12345', role: 'artist')
+user_two = User.create(first_name: 'Leo', last_name: 'Da Vinchi', email: 'leo@gmail.com', phone_number: '123-456-7890', password: 'abc12345', role: 'artist')
+
 
 puts "Generating Artworks..."
-Artwork.create!(title: 'Paint me like one of those french ladies', category: 'painting', user_id: 1)
-Artwork.create(title: 'Ping-pong: A portrait of love ', category: 'painting', user_id: 1)
-Artwork.create(title: 'Dog: My best friend', category: 'sculpture', user_id: 1)
-Artwork.create(title: 'Ecstasy of coding', category: 'painting', user_id: 1)
+buffer.each do |object|
+  file = URI.open(object["url"])
+  article = Artwork.new(title: Faker::Kpop.boy_bands, category: 'painting', user: [user_one, user_two].sample)
+  article.photo.attach(io: file, filename: object["public_id"] + '.jpg', content_type: 'image/jpg')
+  article.save!
+end
 service_one = Service.create(name: 'Large painting', category: 'painting', price: 100, user_id: 1)
+service_two = Service.create(name: 'Medium painting', category: 'painting', price: 50, user_id: 1)
+service_three = Service.create(name: 'Small painting', category: 'painting', price: 25, user_id: 1)
+service_four = Service.create(name: 'Large painting', category: 'painting', price: 100, user_id: 2)
+service_five = Service.create(name: 'Medium painting', category: 'painting', price: 50, user_id: 2)
+service_six = Service.create(name: 'Small painting', category: 'painting', price: 25, user_id: 2)
 Commission.create(user_id: 1, art_description: "its cool", art_price: service_one.price, service_id: service_one.id)
 puts "Generated #{Artwork.count} artworks"
