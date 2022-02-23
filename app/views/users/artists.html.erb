@@ -1,7 +1,7 @@
 
 
 <div class="modal-body row main-content">
-  <div class="col-md-6 border-right shadow-sm">
+  <div class="col-md-6">
     <!-- Your first column here -->
     <h1><%=@user.first_name%> <%=@user.last_name%> profile page</h1>
 
@@ -13,12 +13,12 @@
       <% end %>
     </div>
   </div>
-  <div class="col-md-6 shadow-sm">
+  <div class="col-md-6">
     <!-- Your second column here -->
     <%= simple_form_for @commission do |f| %>
     <%= f.input :art_description %>
     <%= f.association :service, collection: @services, as: :radio_buttons, label_method: :label %>
-    <%= f.submit "Submit", class: "btn btn-success" %>
+    <%= f.submit "Submit", class: "btn btn-dark rounded-pill" %>
   <% end %>
   </div>
 </div>
