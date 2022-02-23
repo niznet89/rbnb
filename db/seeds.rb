@@ -1,7 +1,7 @@
 require "open-uri"
 require 'json'
 require 'faker'
-require 'byebug'
+
 
 buffer = Cloudinary::Api.resources.to_a[0][1]
 
