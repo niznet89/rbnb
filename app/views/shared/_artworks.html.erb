@@ -3,7 +3,7 @@
   <div class="col-md-4 mt-5">
     <%= link_to artists_path(artwork.user) do %>
       <div class="card-trip">
-        <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg" />
+        <img src=<%= cl_image_path artwork.photo.key%> />
         <div class="card-trip-infos">
           <div>
             <h2><%= artwork.title %> </h2>
