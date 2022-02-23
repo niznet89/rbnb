@@ -22,11 +22,11 @@ buffer.each do |object|
   article.photo.attach(io: file, filename: object["public_id"] + '.jpg', content_type: 'image/jpg')
   article.save!
 end
-service_one = Service.create(name: 'Large painting', category: 'painting', price: 100, user_id: 1)
-service_two = Service.create(name: 'Medium painting', category: 'painting', price: 50, user_id: 1)
-service_three = Service.create(name: 'Small painting', category: 'painting', price: 25, user_id: 1)
-service_four = Service.create(name: 'Large painting', category: 'painting', price: 100, user_id: 2)
-service_five = Service.create(name: 'Medium painting', category: 'painting', price: 50, user_id: 2)
-service_six = Service.create(name: 'Small painting', category: 'painting', price: 25, user_id: 2)
+service_one = Service.create(name: 'Large painting', category: 'painting', price: 100, user: user_one)
+service_two = Service.create(name: 'Medium painting', category: 'painting', price: 50, user: user_one)
+service_three = Service.create(name: 'Small painting', category: 'painting', price: 25, user: user_one)
+service_four = Service.create(name: 'Large painting', category: 'painting', price: 100, user: user_two)
+service_five = Service.create(name: 'Medium painting', category: 'painting', price: 50, user: user_two)
+service_six = Service.create(name: 'Small painting', category: 'painting', price: 25, user: user_two)
 Commission.create(user_id: 1, art_description: "its cool", art_price: service_one.price, service_id: service_one.id)
 puts "Generated #{Artwork.count} artworks"
