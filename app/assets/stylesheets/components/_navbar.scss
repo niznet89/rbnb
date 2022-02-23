@@ -1,3 +1,8 @@
+.navbar {
+  padding-top: 1.5rem;
+  padding-bottom: 2rem;
+}
+
 .navbar-lewagon {
   justify-content: space-between;
   background: white;
@@ -9,4 +14,10 @@
 
 .navbar-lewagon .navbar-brand img {
   width: 60px;
+}
+
+@media (min-width: 768px) {
+  .navbar-expand-md .navbar-toggler {
+  display: none;
+}
 }
