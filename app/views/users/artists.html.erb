@@ -3,12 +3,15 @@
 <div class="modal-body row main-content">
   <div class="col-md-6 border-right shadow-sm">
     <!-- Your first column here -->
-    <h1><%=@user.first_name%> <%=@user.last_name%> artists page</h1>
-    <ol>
-  <% @user.artworks.each do |artwork|%>
-    <li><%=artwork.title%> -- <%=artwork.category%></li>
-  <% end %>
-</ol>
+    <h1><%=@user.first_name%> <%=@user.last_name%> profile page</h1>
+
+    <div class="cards">
+      <% @user.artworks.each do |artwork|%>
+        <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path artwork.photo.key%>')">
+          <%= artwork.title %>
+        </div>
+      <% end %>
+    </div>
   </div>
   <div class="col-md-6 shadow-sm">
     <!-- Your second column here -->
