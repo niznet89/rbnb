@@ -1,10 +1,8 @@
 <div class="mt-5 mb-5">
   <h2 class="text-center">Painting Commissions</h2>
-    <% @artworks.category.each do |artwork| %>
-      <%= if @artwork.category == 'painting' %>
         <ul class="cards mt-5">
           <div class="card-wrapper">
-          <li><%= link_to artwork.category, artwork_path(artwork) %></li>
+          <li><%= @artwork.category %></li>
             <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/breakfast.jpg')">
             </div>
             <div class="card-product-infos px-4 py-4">
@@ -14,7 +12,7 @@
             </div>
           </div>
           <div class="card-wrapper">
-          <li><%= link_to artwork.category, artwork_path(artwork) %></li>
+          <li><%= @artwork.category %></li>
             <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/breakfast.jpg')">
             </div>
             <div class="card-product-infos px-4 py-4">
@@ -24,7 +22,7 @@
             </div>
           </div>
           <div class="card-wrapper">
-          <li><%= link_to artwork.category, artwork_path(artwork) %></li>
+          <li><%= @artwork.category %></li>
             <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/breakfast.jpg')">
             </div>
             <div class="card-product-infos px-4 py-4">
@@ -34,6 +32,4 @@
             </div>
           </div>
         </ul>
-      <% end %>
-    <% end %>
 </div>

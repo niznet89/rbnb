@@ -10,4 +10,16 @@ class UsersController < ApplicationController
   def thanks
 
   end
+
+  def digital_art
+    @artworks = Artwork.where(category: 'digital art')
+  end
+
+  def paintings
+    @artworks = Artwork.where(category: 'paintings')
+  end
+
+  def sculptures
+    @artworks = Artwork.where(category: 'sculptures')
+  end
 end
