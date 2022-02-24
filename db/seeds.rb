@@ -14,11 +14,14 @@ Service.delete_all
 user_one = User.create(first_name: 'Pablo', last_name: 'Picasso', email: 'pablo@gmail.com', phone_number: '123-456-7890', password: 'abc12345', role: 'artist')
 user_two = User.create(first_name: 'Leo', last_name: 'Da Vinchi', email: 'leo@gmail.com', phone_number: '123-456-7890', password: 'abc12345', role: 'artist')
 
+category_one = 'painting'
+category_two = 'digital art'
+category_three = 'sculpture'
 
 puts "Generating Artworks..."
 buffer.each do |object|
   file = URI.open(object["url"])
-  article = Artwork.new(title: Faker::Kpop.boy_bands, category: 'painting', user: [user_one, user_two].sample)
+  article = Artwork.new(title: Faker::Kpop.boy_bands, category: [category_one, category_two, category_three].sample, user: [user_one, user_two].sample)
   article.photo.attach(io: file, filename: object["public_id"] + '.jpg', content_type: 'image/jpg')
   article.save!
 end
