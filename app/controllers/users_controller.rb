@@ -7,7 +7,9 @@ class UsersController < ApplicationController
     @commission = Commission.new
   end
 
-  def thanks
+  def thanks; end
 
+  def my_bookings
+    @commissions = Commission.where(user: current_user)
   end
 end
