@@ -39,16 +39,14 @@ class CommissionsController < ApplicationController
   end
 
   def my_bookings
-
-    @commissions = Commission.where.not()
-
-    User.where.not(favorite_animal: "snake")
-
-    @services = Service.find(commission_params[:service_id])
-    @user = User.find(service_params[:user_id])
-    @commissions.services = @commissions
-    @commissions.count
+    @commissions = Commission.joins(:services).where.not(services: { id: nil })
   end
+
+   # @services = Service.find(commission_params[:service_id])
+  #  @user = User.find(service_params[:user_id])
+   # @commissions.services = @commissions
+    #@commissions.count
+  #end
 
   private
 
