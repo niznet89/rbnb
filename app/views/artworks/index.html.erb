@@ -2,10 +2,7 @@
   <div class="row">
     <h2>Artworks</h2>
     <div id="artworks">
-      <%= form_tag artworks_path, method: :get do %>
-        <%= text_field_tag :query, params[:query], class: 'form-control' %>
-        <%= submit_tag "Search", class: "btn btn-primary" %>
-      <% end %>
+      <%= render 'shared/search' %>
       <% if @results.present? %>
         <%# do_results_stuff %>
         <% @results.each do |result| %>

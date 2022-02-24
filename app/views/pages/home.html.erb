@@ -3,10 +3,7 @@
     <div class="col-md-6 text-center">
       <h1>Discover beautiful artwork</h1>
       <p>Discover and commission paintings, sculptures and digital art from artists all around the world.</p>
-      <%= form_tag artworks_path, method: :get do %>
-        <%= text_field_tag :query, params[:query], class: 'form-control' %>
-        <%= submit_tag "Search", class: "btn btn-primary" %>
-      <% end %>
+      <%= render 'shared/search' %>
     </div>
   </div>
 </div>
