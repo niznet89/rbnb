@@ -38,6 +38,11 @@ class CommissionsController < ApplicationController
     redirect_to commission_path(@commission)
   end
 
+  def my_commissions
+    @services = Service.find(commission_params[:service_id])
+    @commissions.services
+  end
+  
   private
 
   def commission_params
@@ -47,4 +52,5 @@ class CommissionsController < ApplicationController
   def service_params
     params.require(:service).permit(:name, :category, :price, :user_id)
   end
+    
 end
