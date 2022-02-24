@@ -1,23 +1,22 @@
-<%= render "shared/search" %>
-<div id="artworks">
-  <%= form_tag artworks_path, method: :get do %>
-    <%= text_field_tag :query, params[:query], class: 'form-control' %>
-    <%= submit_tag "Search", class: "btn btn-primary" %>
-  <% end %>
-  <% @artworks.each do |artwork| %>
-    <%= link_to artists_path(artwork.user) do %>
-        <div class="card-trip">
-          <img src=<%= cl_image_path artwork.photo.key%> />
-          <div class="card-trip-infos">
-            <div>
-              <h2><%= artwork.title %> </h2>
-              <p><%= artwork.category %></p>
-              <br>
-            </div>
-            <h2 class="card-trip-pricing">£99.99</h2>
-            <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-user avatar-bordered" />
-          </div>
-        </div>
+<% @results.each do |result| %>
+  <% artwork_or_artist = result.searchable %>
+  <h4>
+    <%= artwork_or_artist.category %>
+    <% if artwork_or_artist.is_a?(Artwork) %>
+      (<%= artwork_or_artist.user.name %>)
     <% end %>
-  <% end %>
-</div>
+  </h4>
+  <p><%= artwork_or_artist.title %></p>
+<% end %>
+
+
+<% @artworks.each do |artwork| %>
+  <% artwork_or_artist = artwork.searchable %>
+  <h4>
+    <%= artwork_or_artist.category %>
+    <% if artwork_or_artist.is_a?(Artwork) %>
+      (<%= artwork_or_artist.user.name %>)
+    <% end %>
+  </h4>
+  <p><%= artwork_or_artist.title %></p>
+<% end %>

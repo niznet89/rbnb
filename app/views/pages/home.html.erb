@@ -1,10 +1,13 @@
 <div class="banner home-banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url('<%= image_path "painting-banner.jpg" %>');">
   <div class="container">
-      <div class="col-md-6 text-center">
-        <h1>Discover beautiful artwork</h1>
-        <p>Discover and commission paintings, sculptures and digital art from artists all around the world.</p>
-        <%= render "shared/search" %>
-      </div>
+    <div class="col-md-6 text-center">
+      <h1>Discover beautiful artwork</h1>
+      <p>Discover and commission paintings, sculptures and digital art from artists all around the world.</p>
+      <%= form_tag artworks_path, method: :get do %>
+        <%= text_field_tag :query, params[:query], class: 'form-control' %>
+        <%= submit_tag "Search", class: "btn btn-primary" %>
+      <% end %>
+    </div>
   </div>
 </div>
 <div class="mt-5 mb-5">

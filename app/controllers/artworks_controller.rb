@@ -3,8 +3,7 @@ class ArtworksController < ApplicationController
 
   def index
     if params[:query].present?
-      sql_query = "category ILIKE :query OR title ILIKE :query"
-      @artworks = Artwork.where(sql_query, query: "%#{params[:query]}%")
+      @results = PgSearch.multisearch(params[:query])
     else
       @artworks = Artwork.all
     end
