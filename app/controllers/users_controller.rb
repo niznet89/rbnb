@@ -20,4 +20,9 @@ class UsersController < ApplicationController
   def sculptures
     @artworks = Artwork.where(category: 'sculpture')
   end
+  
+  def my_bookings
+    @commissions = Commission.where(user: current_user)
+  end
+  
 end
