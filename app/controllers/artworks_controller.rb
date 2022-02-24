@@ -3,6 +3,11 @@ class ArtworksController < ApplicationController
 
   def index
     @artworks = policy_scope(Artwork)
+    if params[:query].present?
+      @results = PgSearch.multisearch(params[:query])
+    else
+      @artworks = Artwork.all
+    end
   end
 
   def show

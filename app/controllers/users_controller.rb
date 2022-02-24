@@ -8,9 +8,7 @@ class UsersController < ApplicationController
     authorize @user
   end
 
-  def thanks
-
-  end
+  def thanks; end
 
   def edit
     @user = User.find(params[:id])
@@ -29,4 +27,21 @@ class UsersController < ApplicationController
     authorize @user
     # ...
   end
+    
+  def digital_art
+    @artworks = Artwork.where(category: 'digital art')
+  end
+
+  def paintings
+    @artworks = Artwork.where(category: 'painting')
+  end
+
+  def sculptures
+    @artworks = Artwork.where(category: 'sculpture')
+  end
+  
+  def my_bookings
+    @commissions = Commission.where(user: current_user)
+  end
+
 end

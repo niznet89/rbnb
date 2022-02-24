@@ -1,7 +1,28 @@
 
 <div class="mt-5 mb-5">
   <div class="row">
-  <h2>Artworks</h2>
-    <%= render "shared/artworks" %>
+    <h2>Artworks</h2>
+    <div id="artworks">
+      <%= render 'shared/search' %>
+      <% if @results.present? %>
+        <%# do_results_stuff %>
+        <% @results.each do |result| %>
+          <% artwork_or_artist = result.searchable %>
+          <% if artwork_or_artist.is_a?(Artwork) %>
+            <%= render 'shared/search_artworks_results' %>
+          <% else %>
+            <%= render 'shared/search_artists_results' %>
+          <% end %>
+        <% end %>
+      <% else %>
+        <%# do_artworks_stuff %>
+        <% if @artworks.present? %>
+        <%= render 'shared/search_all_results' %>
+        <% else %>
+        <br>
+            <p><strong>Sorry, no results found! 😕 </strong></p>
+            <% end %>
+        <% end %>
+    </div>
   </div>
 </div>

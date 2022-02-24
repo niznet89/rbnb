@@ -1,0 +1,16 @@
+<% @results.each do |artwork| %>
+  <%= link_to artists_path(artwork.searchable.user) do %>
+    <div class="card-trip">
+      <img src=<%= cl_image_path artwork.searchable.photo.key%> />
+      <div class="card-trip-infos">
+        <div>
+          <h2><%= artwork.searchable.title %> </h2>
+          <p><%= artwork.searchable.category %></p>
+          <br>
+        </div>
+        <h2 class="card-trip-pricing">£99.99</h2>
+        <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-user avatar-bordered" />
+      </div>
+    </div>
+  <% end %>
+<% end %>

@@ -5,10 +5,16 @@ Rails.application.routes.draw do
   resources :users, only: [:artists]
   resources :commissions, only: [:new, :create]
   resources :services, only: [:create, :update, :edit]
+  
   delete '/services/:id', to: 'services#destroy', as: 'delete_service'
   get 'artists/:id', to: 'users#artists', as: 'artists'
-  get 'thanks', to: 'users#thanks', as: 'thanks'
   get 'artists/:id/edit', to: 'users#edit', as: 'edit_profile'
+  get '/digital_art', to: 'users#digital_art', as: 'digital_art'
+  get '/paintings', to: 'users#paintings', as: 'paintings'
+  get '/sculptures', to: 'users#sculptures', as: 'sculptures'
+  get '/thanks', to: 'users#thanks', as: 'thanks'
+  get 'my_bookings', to: 'users#my_bookings', as: 'my_bookings'
+  
   # get 'services', to: 'services#show', as: 'artist_services'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
