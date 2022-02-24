@@ -2,7 +2,7 @@ class ArtworksController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show]
 
   def index
-    @artworks = Artwork.all
+    @artworks = policy_scope(Artwork)
   end
 
   def show
