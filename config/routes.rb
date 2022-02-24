@@ -4,8 +4,11 @@ Rails.application.routes.draw do
   resources :artworks
   resources :users, only: [:artists]
   resources :commissions, only: [:new, :create]
-
-  get '/artists/:id', to: 'users#artists', as: 'artists'
+  resources :services, only: [:create, :update, :edit]
+  
+  delete '/services/:id', to: 'services#destroy', as: 'delete_service'
+  get 'artists/:id', to: 'users#artists', as: 'artists'
+  get 'artists/:id/edit', to: 'users#edit', as: 'edit_profile'
   get '/digital_art', to: 'users#digital_art', as: 'digital_art'
   get '/paintings', to: 'users#paintings', as: 'paintings'
   get '/sculptures', to: 'users#sculptures', as: 'sculptures'

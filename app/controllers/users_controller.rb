@@ -5,10 +5,29 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     @services = Service.where(user: @user)
     @commission = Commission.new
+    authorize @user
   end
 
   def thanks; end
 
+  def edit
+    @user = User.find(params[:id])
+    @services = Service.where(user: @user)
+    @service = Service.new
+    authorize @user
+    # ...
+  end
+
+  def new
+    @user = User.new
+  end
+
+  def update
+    # ...
+    authorize @user
+    # ...
+  end
+    
   def digital_art
     @artworks = Artwork.where(category: 'digital art')
   end
@@ -24,5 +43,5 @@ class UsersController < ApplicationController
   def my_bookings
     @commissions = Commission.where(user: current_user)
   end
-  
+
 end

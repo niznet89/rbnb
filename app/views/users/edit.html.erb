@@ -1,0 +1,19 @@
+<p>Where image upload will go</p>
+
+<p>Your services:</p>
+<ul>
+  <% @user.services.each do |service| %>
+    <li><%= service.name%> -- <%= link_to 'Edit Service', edit_service_path(service)%> -- <%= link_to 'Delete', delete_service_path(service), method: :delete, data: { confirm: "Are you sure?" } %></li>
+  <% end %>
+</ul>
+
+<p>Create services:</p>
+<%= simple_form_for @service do |f| %>
+    <%= f.input :name %>
+    <%= f.input :price %>
+    <%= f.submit "Submit", class: "btn btn-success" %>
+<% end %>
+
+<% @user.commissions.each do |comm|%>
+  <%= comm.art_description%>
+<% end %>

@@ -38,6 +38,8 @@ gem 'cloudinary', '~> 1.16.0'
 
 gem 'faker'
 
+gem 'pundit'
+
 gem 'pg_search'
 
 group :development, :test do
