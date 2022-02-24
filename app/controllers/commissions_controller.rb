@@ -39,21 +39,26 @@ class CommissionsController < ApplicationController
   end
 
   def my_bookings
+
+    @commissions = Commission.where.not()
+
+    User.where.not(favorite_animal: "snake")
+
     @services = Service.find(commission_params[:service_id])
     @user = User.find(service_params[:user_id])
-    @commission.user = bookings
-    bookings.count
+    @commissions.services = @commissions
+    @commissions.count
   end
 
   private
 
   def commission_params
-    params.require(:commission).permit(:price, :art_description, :service_id)
+    params.require(:commission).permit(:price, :art_description, :service_id, :user_id)
   end
 
   def service_params
     params.require(:service).permit(:name, :category, :price, :user_id)
-
+  end
   # def set_user
   #   @user = User.find(params[:user_id])
   # end

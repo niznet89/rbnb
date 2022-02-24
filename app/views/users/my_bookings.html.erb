@@ -1,0 +1,17 @@
+<div class="mt-5 mb-5">
+  <h2 class="text-center">My Bookings</h2>
+  <% @commissions.each do |commission| %>
+    <ul class="cards mt-5">
+      <div class="card-wrapper">
+      <li><%= commission.category %></li>
+        <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/breakfast.jpg')">
+        </div>
+        <div class="card-product-infos px-4 py-4">
+          <h6><%= commission.title %></h6>
+          <p><%= commission.price %>
+          <!-- <a class="btn btn-dark rounded-pill" href="#">LEARN MORE</a> -->
+        </div>
+      </div>
+    </ul>
+  <% end %>
+</div>
