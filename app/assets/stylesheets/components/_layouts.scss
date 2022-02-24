@@ -17,3 +17,10 @@ body {
   background-color: white;
   font-family: 'Montserrat', sans-serif;
 }
+
+.flex-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+    grid-auto-rows: auto;
+    grid-gap: 2rem;
+}

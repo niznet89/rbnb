@@ -1,9 +1,6 @@
-
-<div class="mt-5 mb-5">
-  <div class="row">
     <h2>Artworks</h2>
-    <div id="artworks">
       <%= render 'shared/search' %>
+    <div class="flex-container my-5">
       <% if @results.present? %>
         <%# do_results_stuff %>
         <% @results.each do |result| %>
@@ -24,5 +21,3 @@
             <% end %>
         <% end %>
     </div>
-  </div>
-</div>
