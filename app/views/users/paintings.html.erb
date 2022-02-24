@@ -1,35 +1,18 @@
+<%= render "shared/artworks" %>
 <div class="mt-5 mb-5">
   <h2 class="text-center">Painting Commissions</h2>
-        <ul class="cards mt-5">
-          <div class="card-wrapper">
-          <li><%= @artwork.category %></li>
-            <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/breakfast.jpg')">
-            </div>
-            <div class="card-product-infos px-4 py-4">
-              <h6><%= @artwork.title %></h6>
-              <p><%= @artwork.user_id %>
-              <!-- <a class="btn btn-dark rounded-pill" href="#">LEARN MORE</a> -->
-            </div>
-          </div>
-          <div class="card-wrapper">
-          <li><%= @artwork.category %></li>
-            <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/breakfast.jpg')">
-            </div>
-            <div class="card-product-infos px-4 py-4">
-              <h6><%= @artwork.title %></h6>
-              <p><%= @artwork.user_id %>
-              <!-- <a class="btn btn-dark rounded-pill" href="#">LEARN MORE</a> -->
-            </div>
-          </div>
-          <div class="card-wrapper">
-          <li><%= @artwork.category %></li>
-            <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/breakfast.jpg')">
-            </div>
-            <div class="card-product-infos px-4 py-4">
-              <h6><%= @artwork.title %></h6>
-              <p><%= @artwork.user_id %>
-              <!-- <a class="btn btn-dark rounded-pill" href="#">LEARN MORE</a> -->
-            </div>
-          </div>
-        </ul>
+  <% @artworks.each do |artwork| %>
+    <ul class="cards mt-5">
+      <div class="card-wrapper">
+      <li><%= artwork.category %></li>
+        <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/breakfast.jpg')">
+        </div>
+        <div class="card-product-infos px-4 py-4">
+          <h6><%= artwork.title %></h6>
+          <p><%= artwork.user_id %>
+          <!-- <a class="btn btn-dark rounded-pill" href="#">LEARN MORE</a> -->
+        </div>
+      </div>
+    </ul>
+  <% end %>
 </div>

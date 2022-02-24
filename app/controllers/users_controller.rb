@@ -7,19 +7,17 @@ class UsersController < ApplicationController
     @commission = Commission.new
   end
 
-  def thanks
-
-  end
+  def thanks; end
 
   def digital_art
     @artworks = Artwork.where(category: 'digital art')
   end
 
   def paintings
-    @artworks = Artwork.where(category: 'paintings')
+    @artworks = Artwork.where(category: 'painting')
   end
 
   def sculptures
-    @artworks = Artwork.where(category: 'sculptures')
+    @artworks = Artwork.where(category: 'sculpture')
   end
 end

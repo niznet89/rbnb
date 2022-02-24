@@ -38,11 +38,18 @@ class CommissionsController < ApplicationController
     redirect_to commission_path(@commission)
   end
 
+  def my_commissions
+    @services = Service.find(commission_params[:service_id])
+    @commissions.services
+
   private
 
   def commission_params
     params.require(:commission).permit(:price, :art_description, :service_id)
   end
+
+  def service_params
+    params.require(:service).permit(:name, :category, :price, :user_id)
 
   # def set_user
   #   @user = User.find(params[:user_id])
