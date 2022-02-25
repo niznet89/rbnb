@@ -8,7 +8,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
   has_many :artworks, dependent: :destroy
   has_many :services, dependent: :destroy
-  has_many :commissions, through: :services, dependent: :destroy
+  has_many :commissions, through: :services
 
   def name
     "#{first_name} #{last_name}"

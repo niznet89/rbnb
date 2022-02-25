@@ -34,7 +34,7 @@ article_1 = Artwork.new(title: "My one true love", category: category_one, user:
 article_1.photo.attach(io: file_1, filename: 'ping_pong.jpg', content_type: 'image/jpg')
 article_1.save!
 file_2 = URI.open("https://res.cloudinary.com/dmty5wfjh/image/upload/w_1000,ar_1:1,c_fill,g_auto,e_art:hokusai/v1645792819/smiley_face.jpg")
-Artwork.new(title: "It's me!", category: category_one, user: user_three)
+article_2 = Artwork.new(title: "It's me!", category: category_one, user: user_three)
 article_2.photo.attach(io: file_2, filename: 'smiley_face.jpg', content_type: 'image/jpg')
 article_2.save!
 
