@@ -1,18 +1,18 @@
-
 <div class="mt-5 mb-5">
-  <h2 class="text-center">Sculpture Commissions</h2>
+  <h2 class="text-center">Painting Commissions</h2>
   <% @artworks.each do |artwork| %>
-    <ul class="cards mt-5">
-      <div class="card-wrapper">
-      <li><%= artwork.category %></li>
-        <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/breakfast.jpg')">
+    <%= link_to artists_path(artwork.user) do %>
+    <div class="card-trip">
+      <img src=<%= cl_image_path artwork.photo.key%> />
+      <div class="card-trip-infos">
+        <div>
+          <h2><%= artwork.title %> </h2>
+          <p><%= artwork.user.name %></p>
         </div>
-        <div class="card-product-infos px-4 py-4">
-          <h6><%= artwork.title %></h6>
-          <p><%= artwork.user_id %>
-          <!-- <a class="btn btn-dark rounded-pill" href="#">LEARN MORE</a> -->
-        </div>
+        <p><%= artwork.category %></p>
+        <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-user avatar-bordered" />
       </div>
-    </ul>
+    </div>
   <% end %>
+<% end %>
 </div>
