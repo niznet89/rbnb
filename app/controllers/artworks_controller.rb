@@ -31,8 +31,8 @@ class ArtworksController < ApplicationController
   end
 
   def digital_art
-    @artworks = Artwork.where(category: 'digital art')
     authorize Artwork
+    @artworks = Artwork.where(category: 'digital art')
   end
 
   def paintings
