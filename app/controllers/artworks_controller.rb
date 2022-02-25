@@ -23,10 +23,11 @@ class ArtworksController < ApplicationController
     @artwork.user = current_user
 
     if @artwork.save
-      redirect_to artwork_path(@artwork), notice: 'Good job! A new artwork was successfully created!'
+      redirect_to edit_profile_path(current_user), notice: 'Good job! A new artwork was successfully created!'
     else
       render :new
     end
+    authorize @artwork
   end
 
   private

@@ -1,19 +1,46 @@
-<p>Where image upload will go</p>
+<div class="modal-body row main-content">
 
-<p>Your services:</p>
-<ul>
-  <% @user.services.each do |service| %>
-    <li><%= service.name%> -- <%= link_to 'Edit Service', edit_service_path(service)%> -- <%= link_to 'Delete', delete_service_path(service), method: :delete, data: { confirm: "Are you sure?" } %></li>
-  <% end %>
-</ul>
+<h1><%= @user.first_name %>, edit away!</h1>
 
-<p>Create services:</p>
-<%= simple_form_for @service do |f| %>
-    <%= f.input :name %>
-    <%= f.input :price %>
-    <%= f.submit "Submit", class: "btn btn-success" %>
+  <div class="col-md-6">
+  <h3>Your open orders</h3>
+    <% @user.commissions.each do |comm|%>
+  <div class="notification">
+    <h5><%= comm.art_price %>€</h5>
+    <div class="notification-content">
+      <p><small>14th January</small></p>
+      <p><%= comm.art_description %></p>
+    </div>
+
+    <div class="notification-actions">
+      <a href="#">Edit <i class="fas fa-pencil-alt"></i></a>
+      <a href="#">Delete <i class="far fa-trash-alt"></i></a>
+    </div>
+  </div>
 <% end %>
+    <hr>
+    <h3>Upload new artwork</h3>
+     <%= simple_form_for(@artwork) do |f| %>
+      <%= f.input :title %>
+      <%= f.input :category %>
+      <%= f.input :photo, as: :file %>
+      <%= f.submit "Submit", class: "btn btn-success" %>
+    <% end %>
+  </div>
+  <div class="col-md-6">
 
-<% @user.commissions.each do |comm|%>
-  <%= comm.art_description%>
-<% end %>
+    <h3>Your available services:</h3>
+      <ul>
+        <% @user.services.each do |service| %>
+          <li><%= service.name%> -- <%= link_to 'Edit Service', edit_service_path(service)%> -- <%= link_to 'Delete', delete_service_path(service), method: :delete, data: { confirm: "Are you sure?" } %></li>
+        <% end %>
+      </ul>
+    <hr>
+    <h3>Create a service:</h3>
+      <%= simple_form_for @service do |f| %>
+          <%= f.input :name %>
+          <%= f.input :price %>
+          <%= f.submit "Submit", class: "btn btn-success" %>
+      <% end %>
+  </div>
+</div>

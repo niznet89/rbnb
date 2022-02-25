@@ -12,8 +12,15 @@ class UsersController < ApplicationController
 
   def edit
     @user = User.find(params[:id])
+    @artwork = Artwork.new
     @services = Service.where(user: @user)
     @service = Service.new
+    @artwork.user = current_user
+    if @artwork.save
+      redirect_to edit_profile(@user)
+    else
+      render "users/edit"
+    end
     authorize @user
     # ...
   end
@@ -27,7 +34,7 @@ class UsersController < ApplicationController
     authorize @user
     # ...
   end
-    
+
   def digital_art
     @artworks = Artwork.where(category: 'digital art')
   end
@@ -39,7 +46,7 @@ class UsersController < ApplicationController
   def sculptures
     @artworks = Artwork.where(category: 'sculpture')
   end
-  
+
   def my_bookings
     @commissions = Commission.where(user: current_user)
   end
