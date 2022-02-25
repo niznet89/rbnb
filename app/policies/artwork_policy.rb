@@ -9,4 +9,16 @@ class ArtworkPolicy < ApplicationPolicy
   def create?
     true
   end
+
+  def paintings?
+    true
+  end
+
+  def digital_art?
+    true
+  end
+
+  def sculptures?
+    true
+  end
 end

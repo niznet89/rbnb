@@ -30,6 +30,21 @@ class ArtworksController < ApplicationController
     authorize @artwork
   end
 
+  def digital_art
+    @artworks = Artwork.where(category: 'digital art')
+    authorize Artwork
+  end
+
+  def paintings
+    @artworks = Artwork.where(category: 'painting')
+    authorize Artwork
+  end
+
+  def sculptures
+    @artworks = Artwork.where(category: 'sculpture')
+    authorize Artwork
+  end
+
   private
 
   def artwork_params
