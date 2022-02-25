@@ -1,12 +1,11 @@
-
-
-<div class="modal-body row main-content">
+<div class="row main-content">
   <div class="col-md-6">
     <!-- Your first column here -->
-    <h1><%=@user.first_name%> <%=@user.last_name%> profile page</h1>
-    <% if policy(@user).update? %>
-      <a class="btn btn-primary" href= <%= edit_profile_path(@user) %> role="button">Edit page</a>
-    <% end %>
+    <h1><%=@user.first_name%> <%=@user.last_name%> artworks  <% if policy(@user).update? %>
+      <br>
+      <a class="btn btn-dark rounded-pill" href= <%= edit_profile_path(@user) %> role="button">Edit my artist profile</a>
+    <% end %></h1>
+    <br>
     <div class="cards">
       <% @user.artworks.each do |artwork|%>
         <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path artwork.photo.key%>')">
@@ -18,9 +17,9 @@
   <div class="col-md-6">
     <!-- Your second column here -->
     <%= simple_form_for @commission do |f| %>
-    <%= f.input :art_description %>
-    <%= f.association :service, collection: @services, as: :radio_buttons, label_method: :label %>
-    <%= f.submit "Submit", class: "btn btn-dark rounded-pill" %>
-  <% end %>
+      <%= f.input :art_description %>
+      <%= f.association :service, collection: @services, as: :radio_buttons, label_method: :label %>
+      <%= f.submit "Submit", class: "btn btn-dark rounded-pill" %>
+    <% end %>
   </div>
 </div>

@@ -24,3 +24,8 @@ body {
     grid-auto-rows: auto;
     grid-gap: 2rem;
 }
+
+
+.form-check-input[type="radio"] {
+  position: absolute;
+}
