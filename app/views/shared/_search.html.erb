@@ -1,6 +1,6 @@
 <%= form_tag artworks_path, method: :get do %>
   <div class="search-form-control form-group">
-    <%= text_field_tag :query, params[:query], class: 'form-control rounded-pill' %>
+    <%= text_field_tag :query, params[:query], placeholder: 'Search by art type, artist or artwork title...', class: 'form-control rounded-pill' %>
     <%= button_tag class: "btn btn-dark rounded-pill" do %>
       <i class="fas fa-search"></i>
     <% end %>
