@@ -13,6 +13,9 @@ Service.delete_all
 
 user_one = User.create(first_name: 'Pablo', last_name: 'Picasso', email: 'pablo@gmail.com', phone_number: '123-456-7890', password: 'abc12345', role: 'artist')
 user_two = User.create(first_name: 'Leo', last_name: 'Da Vinchi', email: 'leo@gmail.com', phone_number: '123-456-7890', password: 'abc12345', role: 'artist')
+user_three = User.create(first_name: 'Frida', last_name: 'Cannelle', email: 'frida@gmail.com', phone_number: '123-456-7890', password: 'abc12345', role: 'artist')
+user_four = User.create(first_name: 'Aphonso', last_name: 'Dali', email: 'aphonso@gmail.com', phone_number: '123-456-7890', password: 'abc12345', role: 'artist')
+
 
 category_one = 'painting'
 category_two = 'digital art'
@@ -25,6 +28,16 @@ buffer.each do |object|
   article.photo.attach(io: file, filename: object["public_id"] + '.jpg', content_type: 'image/jpg')
   article.save!
 end
+
+file_1 = URI.open("https://res.cloudinary.com/dmty5wfjh/image/upload/w_1000,ar_1:1,c_fill,g_auto,e_art:hokusai/v1645792818/ping_pong.jpg")
+article_1 = Artwork.new(title: "My one true love", category: category_one, user: user_four)
+article_1.photo.attach(io: file_1, filename: 'ping_pong.jpg', content_type: 'image/jpg')
+article_1.save!
+file_2 = URI.open("https://res.cloudinary.com/dmty5wfjh/image/upload/w_1000,ar_1:1,c_fill,g_auto,e_art:hokusai/v1645792819/smiley_face.jpg")
+Artwork.new(title: "It's me!", category: category_one, user: user_three)
+article_2.photo.attach(io: file_2, filename: 'smiley_face.jpg', content_type: 'image/jpg')
+article_2.save!
+
 service_one = Service.create(name: 'Large painting', category: 'painting', price: 100, user: user_one)
 service_two = Service.create(name: 'Medium painting', category: 'painting', price: 50, user: user_one)
 service_three = Service.create(name: 'Small painting', category: 'painting', price: 25, user: user_one)
