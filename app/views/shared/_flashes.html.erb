@@ -1,12 +1,16 @@
 <% if notice %>
-  <div class="alert alert-success alert-dismissible fade show m-1" role="alert">
-    <button type="button" class="close" data-bs-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-    <%= notice %>
+  <div class="flash flash-success alert alert-dismissible fade show rounded-pill" role="alert">
+    <span><%= notice %></span>
+    <a data-bs-dismiss="alert" aria-label="Close">
+      <i class="fas fa-times"></i>
+    </a>
   </div>
 <% end %>
 <% if alert %>
-  <div class="alert alert-danger alert-dismissible fade show m-1" role="alert">
-    <button type="button" class="close" data-bs-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-    <%= alert %>
+  <div class="flash flash-danger alert alert-dismissible fade show rounded-pill" role="alert">
+    <span><%= alert %></span>
+    <a data-bs-dismiss="alert" aria-label="Close">
+      <i class="fas fa-times"></i>
+    </a>
   </div>
 <% end %>
