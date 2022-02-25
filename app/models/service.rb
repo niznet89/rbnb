@@ -1,6 +1,6 @@
 class Service < ApplicationRecord
   belongs_to :user
-  #has_one :commission
+  has_many :commissions
 
   def label
     "#{name} -- Price: #{price}€"

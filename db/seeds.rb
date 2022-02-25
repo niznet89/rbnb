@@ -29,14 +29,22 @@ buffer.each do |object|
   article.save!
 end
 
-file_1 = URI.open("https://res.cloudinary.com/dmty5wfjh/image/upload/w_1000,ar_1:1,c_fill,g_auto,e_art:hokusai/v1645792818/ping_pong.jpg")
-article_1 = Artwork.new(title: "My one true love", category: category_one, user: user_four)
-article_1.photo.attach(io: file_1, filename: 'ping_pong.jpg', content_type: 'image/jpg')
-article_1.save!
-file_2 = URI.open("https://res.cloudinary.com/dmty5wfjh/image/upload/w_1000,ar_1:1,c_fill,g_auto,e_art:hokusai/v1645792819/smiley_face.jpg")
-article_2 = Artwork.new(title: "It's me!", category: category_one, user: user_three)
-article_2.photo.attach(io: file_2, filename: 'smiley_face.jpg', content_type: 'image/jpg')
-article_2.save!
+# file_1 = URI.open("https://res.cloudinary.com/dmty5wfjh/image/upload/v1645792818/assets/ping_pong.jpg")
+# article_1 = Artwork.new(title: "My one true love", category: category_one, user: user_four)
+# article_1.photo.attach(io: file_1, filename: 'ping_pong.jpg', content_type: 'image/jpg')
+# article_1.save!
+# file_2 = URI.open("https://res.cloudinary.com/dmty5wfjh/image/upload/w_1000,ar_1:1,c_fill,g_auto,e_art:hokusai/v1645792819/smiley_face.jpg")
+# article_2 = Artwork.new(title: "Hehe 😉", category: category_one, user: user_three)
+# article_2.photo.attach(io: file_2, filename: 'smiley_face.jpg', content_type: 'image/jpg')
+# article_2.save!
+# file_3 = URI.open("https://res.cloudinary.com/dmty5wfjh/image/upload/v1645792818/assets/aphonso_art.jpg")
+# article_3 = Artwork.new(title: "It's me!", category: category_one, user: user_four)
+# article_3.photo.attach(io: file_3, filename: 'aphonso_art.jpg', content_type: 'image/jpg')
+# article_3.save!
+# file_4 = URI.open("https://res.cloudinary.com/dmty5wfjh/image/upload/v1645792818/assets/shrooms.jpg")
+# article_4 = Artwork.new(title: "My babies", category: category_one, user: user_three)
+# article_4.photo.attach(io: file_4, filename: 'shrooms.jpg', content_type: 'image/jpg')
+# article_4.save!
 
 service_one = Service.create(name: 'Large painting', category: 'painting', price: 100, user: user_one)
 service_two = Service.create(name: 'Medium painting', category: 'painting', price: 50, user: user_one)
