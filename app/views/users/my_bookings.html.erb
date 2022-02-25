@@ -1,17 +1,30 @@
+<h2 class="text-center">My Bookings</h2>
+<hr>
+<% @commissions.each do |commission| %>
+  <div class="container py-5 h-100">
+    <div class="row d-flex justify-content-center align-items-center h-100">
+      <div class="col">
+        <div class="card card-stepper" style="border-radius: 10px;">
+          <div class="card-body p-4">
 
-<div class="mt-5 mb-5">
-  <h2 class="text-center">My Bookings</h2>
-  <% @commissions.each do |commission| %>
-    <ul class="cards mt-5">
-      <div class="card-wrapper">
-      <li><%= commission.art_description %></li>
-        <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/breakfast.jpg')">
-        </div>
-        <div class="card-product-infos px-4 py-4">
-          <p><%= commission.art_price %>
-          <!-- <a class="btn btn-dark rounded-pill" href="#">LEARN MORE</a> -->
+            <div class="d-flex justify-content-between align-items-center">
+              <div class="d-flex flex-column">
+
+                <span class="lead fw-normal">Your commission for a <%= commission.service.name %> has been delivered to <%= commission.service.user.first_name %></span>
+                <span class="text-muted small"><strong><%= commission.art_price %> €</strong> -- <%= commission.art_description %></span>
+
+              </div>
+              <div>
+                <button class="btn btn-outline-primary" type="button">Track order details</button>
+              </div>
+            </div>
+            <hr class="my-4">
+
+
+
+          </div>
         </div>
       </div>
-    </ul>
-  <% end %>
-</div>
+    </div>
+  </div>
+<% end %>
