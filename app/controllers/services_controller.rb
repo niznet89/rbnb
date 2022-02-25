@@ -41,6 +41,7 @@ class ServicesController < ApplicationController
 
     # no need for app/views/restaurants/destroy.html.erb
     redirect_to edit_profile_path(current_user)
+    authorize @service
   end
 
   private
