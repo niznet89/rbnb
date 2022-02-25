@@ -8,7 +8,9 @@ class UsersController < ApplicationController
     authorize @user
   end
 
-  def thanks; end
+  def thanks
+    authorize current_user
+  end
 
   def edit
     @user = User.find(params[:id])
@@ -16,11 +18,11 @@ class UsersController < ApplicationController
     @services = Service.where(user: @user)
     @service = Service.new
     @artwork.user = current_user
-    if @artwork.save
-      redirect_to edit_profile(@user)
-    else
-      render "users/edit"
-    end
+    # if @artwork.save
+    #   redirect_to edit_profile(@user)
+    # else
+    #   render "users/edit"
+    # end
     authorize @user
     # ...
   end
@@ -49,6 +51,7 @@ class UsersController < ApplicationController
 
   def my_bookings
     @commissions = Commission.where(user: current_user)
+    authorize current_user
   end
 
 end

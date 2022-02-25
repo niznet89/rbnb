@@ -15,4 +15,12 @@ class UserPolicy < ApplicationPolicy
     # user - user that is logged in at the moment (= current_user)
     record == user
   end
+
+  def thanks?
+    true
+  end
+
+  def my_bookings?
+    true
+  end
 end
